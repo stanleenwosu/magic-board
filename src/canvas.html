@@ -6,12 +6,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/W3 CSS.css">
     <title>Magic Board - A kid's Playground 😉 </title>
 </head>
 
-<body>
+<body id="body">
+    <div class="w3-bar">
+        <button class="btn" id="clear-button">Clear Board </button>
+        <div class="w3-dropdown-hover">
+            <button class="btn" id="clear-button">Brush Color </button>
+            <div class="w3-dropdown-content w3-bar-block w3-border w3-round">
+
+                <div class="w3-bar-item">
+                    <div class="w3-row-padding">
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="aqua" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: aqua;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="purple" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: purple;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="red" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: red;">
+                            </div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="indigo" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: indigo;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-bar-item">
+                    <div class="w3-row-padding">
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="deeppink" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color:deeppink"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="royalblue" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color:royalblue;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="seagreen" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: seagreen;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="hotpink" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: hotpink;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-bar-item">
+                    <div class="w3-row-padding">
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="whitesmoke" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: whitesmoke;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="tan" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: tan;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="teal" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: teal;"></div>
+                        </div>
+                        <div class="w3-col" style="width: 25%; padding: 4px;">
+                            <div class="black" onclick="changePenColor(this)"
+                                style="width:100%; height: 26px; background-color: black;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="nav">
+            <p class="nav">Brush Size</p>
+            <input id="brush-size" class="nav" type="number">
+        </div>
+
+    </div>
+    <footer class="footer">
+        <p>Made with Magic Board 🧙</p>
+    </footer>
+
     <canvas id="canvas"></canvas>
     <script src="js/script.js"></script>
+    <script src="js/handlers.js"></script>
 </body>
 
 </html>

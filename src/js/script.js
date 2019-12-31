@@ -1,20 +1,24 @@
+var penColor = "#ffffff"
+var canvasColor = ""
+var brushSize = 6
+
 function StartDrawing() {
     const canvas = document.getElementById("canvas");
     const ctx = canvas.getContext("2d");
     let start = false;
-    let lastX; 
+    let lastX;
     let lastY;
     let currX;
     let currY;
 
     // Get proper height and width for canvas, then set resize handler.
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = document.getElementById("body").clientWidth;
+    canvas.height = window.innerHeight - 50
     window.addEventListener(
         "resize",
         ({ target: { innerWidth, innerHeight } }) => {
-            canvas.width = innerWidth;
-            canvas.height = innerHeight;
+            canvas.width = document.getElementById('body').clientWidth;
+            canvas.height = canvas.height = window.innerHeight - 50
         },
         false
     );
@@ -46,10 +50,10 @@ function StartDrawing() {
 
                     if (start == true) {
                         ctx.beginPath();
-                        ctx.lineWidth = 6;
-                        ctx.moveTo(lastX, lastY);
-                        ctx.lineTo(currX, currY);
-                        ctx.strokeStyle = "#b200f0";
+                        ctx.lineWidth = brushSize;
+                        ctx.moveTo(lastX, lastY - 30);
+                        ctx.lineTo(currX, currY - 30);
+                        ctx.strokeStyle = penColor;
                         ctx.stroke();
                         ctx.lineJoin = "round";
                         ctx.lineCap = "round";
@@ -57,12 +61,35 @@ function StartDrawing() {
                         // lastX and Y becomes the current x and y
                         lastX = currX
                         lastY = currY
+                    };
+                }
+                requestAnimationFrame(draw);
+            },
+            false
+        );
 
-                        // Fade out the previous tails
-                        ctx.fillStyle = `rgba(0, 0, 0, 0)`;
-                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        window.addEventListener(
+            "mousedown",
+            ({ pageX, pageY }) => {
 
-                        // Request an animation frame to update it for a smooth 60fps independent of mousemove updates.
+                draw = () => {
+                    // Set current x and y
+                    currX = pageX
+                    currY = pageY
+
+                    if (start == true) {
+                        ctx.beginPath();
+                        ctx.lineWidth = brushSize;
+                        ctx.moveTo(lastX, lastY - 30);
+                        ctx.lineTo(currX, currY - 30);
+                        ctx.strokeStyle = penColor;
+                        ctx.stroke();
+                        ctx.lineJoin = "round";
+                        ctx.lineCap = "round";
+
+                        // lastX and Y becomes the current x and y
+                        lastX = currX
+                        lastY = currY
                     };
                 }
                 requestAnimationFrame(draw);
@@ -74,3 +101,18 @@ function StartDrawing() {
 };
 
 StartDrawing()
+
+// Change the Pen Color
+function changePenColor(element) {
+    penColor = element.className
+}
+
+//Change the Brush Size
+function changeBrushSize() {
+    var input = document.getElementById("brush-size")
+    input.value = brushSize
+    input.addEventListener('input', () => {
+        brushSize = input.value
+    })
+}
+changeBrushSize();
