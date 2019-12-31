@@ -1,5 +1,5 @@
 # Magic Board :crystal_ball:
-**A Simple App for using your broswer as a drawing book**
+**A Simple App for using your browser as a drawing book**
 
 - Fully Customizable.
 - Purely in HTML, CSS and Javascript.
