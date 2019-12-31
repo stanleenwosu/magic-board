@@ -5,4 +5,4 @@
 - Purely in HTML, CSS and Javascript.
 - Can be added to your website.
 
-### HAve Fun :v:
+### Have Fun :v:
